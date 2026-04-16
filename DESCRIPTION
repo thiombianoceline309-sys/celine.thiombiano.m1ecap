@@ -1,0 +1,27 @@
+Package: celine.thiombiano.m1ecap
+Type: Package
+Title: Outils d'Analyse et de Visualisation du Jeu de Données Diamonds
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Celine", "Thiombiano",
+      email = "celine.thiombiano@example.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: Ce package fournit plusieurs fonctions permettant 
+    d'explorer, filtrer et analyser le jeu de données 'diamonds' 
+    du package ggplot2. Il inclut une fonction de filtrage 
+    personnalisée, une fonction de calcul de statistiques 
+    groupées (moyenne, médiane, maximum) et une fonction de 
+    visualisation basée sur ggplot2. Ces outils facilitent 
+    l'analyse descriptive et graphique de sous-ensembles du 
+    jeu de données.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 3.5)
+Imports:
+    dplyr,
+    ggplot2
