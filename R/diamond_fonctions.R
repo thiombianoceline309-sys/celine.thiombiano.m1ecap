@@ -1,24 +1,23 @@
 #' Filtrer le jeu de données diamonds
-#'
-#' Cette fonction filtre le jeu de données selon la couleur et/ou la qualité de coupe.
-#'
-#' @param data Jeu de données (par défaut : diamonds)
-#' @param cut Valeur(s) de coupe à sélectionner (optionnel)
-#' @param color Valeur(s) de couleur à sélectionner (optionnel)
-#'
-#' @return Un data frame filtré
-#'
-#' @import dplyr
-#' @import ggplot2
-#'
-#'
-filtrer_diamonds <- function(data = diamonds, cut = NULL, color = NULL){
-  data |>
-    dplyr::filter(
-      (is.null(cut)   | cut   %in% .data$cut),
-      (is.null(color) | color %in% .data$color)
-    )
+#' @param data tibble diamonds
+#' @param cut filtre coupe (NULL = tout)
+#' @param color filtre couleur (NULL = tout)
+#' @return tibble filtré
+#' @export
+filtrer_diamonds <- function(data = diamonds, cut = NULL, color = NULL) {
+  result <- data
+
+  if (!is.null(cut)) {
+    result <- dplyr::filter(result, cut %in% !!cut)
+  }
+
+  if (!is.null(color)) {
+    result <- dplyr::filter(result, color %in% !!color)
+  }
+
+  result
 }
+
 
 
 #' Calculer des statistiques groupées

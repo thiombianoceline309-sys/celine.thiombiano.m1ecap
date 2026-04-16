@@ -9,14 +9,13 @@ usethis::use_data(DATASET, overwrite = TRUE)
 
 
 
-library(ggplot2)
-data(diamonds)
-
-
-write.csv(diamant, "diamonds.csv", row.names = FALSE)
+#
 
 library(readr)
-diamonds <- read_csv("C:/Users/hp/OneDrive/Bureau/M1 ECAP/S2 ECAP/R_avancé/Examen/diamonds.csv")
+
+diamonds <- read_csv("data-raw/diamonds.csv")
+
+usethis::use_data(diamonds, overwrite = TRUE)
 
 
 

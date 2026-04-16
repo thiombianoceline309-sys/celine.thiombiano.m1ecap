@@ -7,15 +7,15 @@
 filtrer_diamonds(data = diamonds, cut = NULL, color = NULL)
 }
 \arguments{
-\item{data}{Jeu de données (par défaut : diamonds)}
+\item{data}{tibble diamonds}
 
-\item{cut}{Valeur(s) de coupe à sélectionner (optionnel)}
+\item{cut}{filtre coupe (NULL = tout)}
 
-\item{color}{Valeur(s) de couleur à sélectionner (optionnel)}
+\item{color}{filtre couleur (NULL = tout)}
 }
 \value{
-Un data frame filtré
+tibble filtré
 }
 \description{
-Cette fonction filtre le jeu de données selon la couleur et/ou la qualité de coupe.
+Filtrer le jeu de données diamonds
 }

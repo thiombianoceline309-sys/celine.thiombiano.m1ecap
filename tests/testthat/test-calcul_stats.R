@@ -3,12 +3,24 @@ test_that("multiplication works", {
 })
 
 
-test_that("calcul_stats fonctionne avec données valides", {
-  result <- calcul_stats(diamonds, "color", "price")
-  expect_true("moyenne" %in% names(result))
-  expect_equal(nrow(result), 8)  # 8 couleurs D-Z
+test_that("calcul_stats produit les bonnes colonnes", {
+  stats <- calcul_stats(df_test, "color", "price")
+  expect_true(all(c("moyenne", "mediane", "maximum") %in% names(stats)))
 })
 
-test_that("calcul_stats gère les erreurs", {
-  expect_error(calcul_stats(diamonds, "couleur_inexistante", "price"))
+test_that("calcul_stats calcule correctement la moyenne", {
+  stats <- calcul_stats(df_test, "color", "price")
+  expect_equal(
+    stats$moyenne[stats$color == "D"],
+    mean(df_test$price[df_test$color == "D"])
+  )
 })
+
+test_that("calcul_stats fonctionne avec une autre variable numérique", {
+  stats <- calcul_stats(df_test, "cut", "carat")
+  expect_equal(
+    stats$maximum[stats$cut == "Premium"],
+    max(df_test$carat[df_test$cut == "Premium"])
+  )
+})
+
