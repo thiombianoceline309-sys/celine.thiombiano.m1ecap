@@ -9,14 +9,8 @@
 #' @return Un data frame filtré
 #'
 #' @import dplyr
-#' @importFrom ggplot2 diamonds
+#' @import ggplot2
 #'
-#' @examples
-#' # Filtrer uniquement les diamants de couleur D
-#' filtrer_diamonds(diamonds, color = "D")
-#'
-#' # Filtrer les diamants de coupe Ideal et Premium
-#' filtrer_diamonds(diamonds, cut = c("Ideal", "Premium"))
 #'
 filtrer_diamonds <- function(data = diamonds, cut = NULL, color = NULL){
   data |>
@@ -36,13 +30,7 @@ filtrer_diamonds <- function(data = diamonds, cut = NULL, color = NULL){
 #' @return Un tableau avec moyenne, médiane et maximum
 #'
 #' @import dplyr
-#'
-#' @examples
-#' # Calculer les stats du prix par couleur
-#' calcul_stats(diamonds, "color", "price")
-#'
-#' # Calculer les stats du carat par type de coupe
-#' calcul_stats(diamonds, "cut", "carat")
+#' @import stats
 #'
 calcul_stats <- function(data, group_var, numeric_var){
   data |>
@@ -67,10 +55,6 @@ calcul_stats <- function(data, group_var, numeric_var){
 #'
 #' @import ggplot2
 #'
-#' @examples
-#' # Exemple complet :
-#' stats <- calcul_stats(diamonds, "color", "price")
-#' plot_stats(stats, "color")
 #'
 plot_stats <- function(stats_table, group_var){
   ggplot2::ggplot(stats_table, ggplot2::aes(x = .data[[group_var]], y = moyenne)) +

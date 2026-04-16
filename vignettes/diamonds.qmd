@@ -1,0 +1,28 @@
+---
+title: "Introduction au package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Présentation
+
+Cette vignette présente les fonctions principales du package
+`celine.thiombiano.m1ecap`.
+
+# Exemple d'utilisation (non exécuté)
+
+```{r, eval=FALSE}
+library(celine.thiombiano.m1ecap)
+
+# Filtrer les données
+data_filtre <- filtrer_diamonds(diamonds, color = "D")
+
+# Calculer des statistiques
+stats <- calcul_stats(data_filtre, "cut", "price")
+
+# Visualiser
+plot_stats(stats, "cut")
+
