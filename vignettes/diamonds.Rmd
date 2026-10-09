@@ -25,4 +25,4 @@ stats <- calcul_stats(data_filtre, "cut", "price")
 
 # Visualiser
 plot_stats(stats, "cut")
-
+```
